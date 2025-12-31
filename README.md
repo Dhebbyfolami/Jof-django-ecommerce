@@ -107,8 +107,6 @@ No real money is processed in this deployment.
 
 ## 📸 Screenshots
 
-*(Screenshots will be added here)*
-
 
 ```md
 ![Shop Page](screenshots/cart.png)
