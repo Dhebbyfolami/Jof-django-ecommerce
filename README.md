@@ -22,6 +22,7 @@ The goal is simple:
 ## 🌍 Live Demo (Test Environment)
 
 🔗 **Live App:**  
+ https://jof-django-e-commerce.onrender.com
 
 > This deployment is for **viewing and testing purposes only**.  
 > Payment gateways run in **test mode**.
