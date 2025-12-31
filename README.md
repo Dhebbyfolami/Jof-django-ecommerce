@@ -118,7 +118,7 @@ No real money is processed in this deployment.
 ```
 
 ```md
-![Checkout Page](screenshots/cart.png)
+![Checkout Page](screenshots/Jof _ Checkout -.png)
 ```
 
 ```md
