@@ -110,16 +110,16 @@ No real money is processed in this deployment.
 *(Screenshots will be added here)*
 
 ```md
-![Shop Page](screenshots/cart.png)
+[![Shop Page](screenshots/cart.png)
 ```
 
 ```md
-![Cart Page](screenshots/cart.png)
-```
+![Cart 
 
 ```md
 ![Checkout Page](screenshot/Jof _ Checkout -.png)
-```
+
+
 
 ```md
 ![Order success Page](screenshots/cart.png)
