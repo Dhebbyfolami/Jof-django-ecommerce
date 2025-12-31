@@ -109,21 +109,23 @@ No real money is processed in this deployment.
 
 *(Screenshots will be added here)*
 
+
 ```md
-[![Shop Page](screenshots/cart.png)
+![Shop Page](screenshots/cart.png)
 ```
 
 ```md
-![Cart 
+![Cart Page](screenshots/cart.png)
+```
 
 ```md
-![Checkout Page](screenshot/Jof _ Checkout -.png)
-
-
+![Checkout Page](screenshots/cart.png)
+```
 
 ```md
 ![Order success Page](screenshots/cart.png)
 ```
+
 
 ⸻
 
@@ -195,4 +197,3 @@ Focus: Practical, scalable web solutions
 ⸻
 
 ⭐ If you find this project helpful, feel free to star the repository.
-
