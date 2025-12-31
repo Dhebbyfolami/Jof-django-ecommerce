@@ -109,16 +109,19 @@ No real money is processed in this deployment.
 
 
 ### 🏠 Home Page
-[![Home](screenshot/Jof_Shop-home.png)](screenshots/Jof_Shop-home.png)
+![Home](screenshot/Jof_Shop-home.png)
+
 
 ### 🛒 Cart Page
-[![Cart](screenshot/Jof_Shop-cart.png)](screenshot/Jof_Shop-cart.png)
+![Cart](screenshot/Jof_Shop-cart.png)
+
 
 ### 💳 Checkout Page
-[![Checkout](screenshot/Jof_checkout.png)](screenshot/Jof_checkout.png) 
+![Checkout](screenshot/Jof_checkout.png)
+
 
 ### ✅ Order Success Page 
-[![Checkout](screenshot/Jof_Checkout-orderreceived.png)](screenshot/Jof_Checkout-orderreceived.png)
+![Checkout](screenshot/Jof_Checkout-orderreceived.png)
 
 
 ⸻
