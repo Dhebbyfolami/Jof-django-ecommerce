@@ -109,7 +109,7 @@ No real money is processed in this deployment.
 
 
 ### 🏠 Home Page
-![Home](screenshot/Jof _ Checkout.png)
+![Home](screenshot/Jof_Checkout.png)
 
 
 ### 🛒 Cart Page
