@@ -109,23 +109,21 @@ No real money is processed in this deployment.
 
 *(Screenshots will be added here)*
 
-You can add:
-- Home page
-- Product listing
-- Cart page
-- Checkout page
-- Order success page
+```md
+![Shop Page](screenshots/cart.png)
+```
 
-To add screenshots later:
-1. Create a `screenshots/` folder
-2. Upload images
-3. Reference them here using Markdown
-
-Example:
 ```md
 ![Cart Page](screenshots/cart.png)
 ```
 
+```md
+![Checkout Page](screenshots/cart.png)
+```
+
+```md
+![Order success Page](screenshots/cart.png)
+```
 
 ⸻
 
