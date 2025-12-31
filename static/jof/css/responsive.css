@@ -1,0 +1,5 @@
+/* Minimal responsive tweaks */
+@media (max-width: 768px){
+  body { padding-top: 64px; }
+  .product-card img { height: 180px; }
+}

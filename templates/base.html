@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Jof{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'jof/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/jquery.mCustomScrollbar.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/jquery.fancybox.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'jof/css/responsive.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="{% url 'store:product_list' %}">Jof</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navJof">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navJof">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="{% url 'store:product_list' %}">Shop</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'store:product_list' %}">All</a></li>
+            <li><hr class="dropdown-divider"></li>
+            {% for c in nav_categories %}
+              <li><a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+
+      <form class="d-flex me-3" method="get" action="{% url 'store:product_list' %}">
+        <input class="form-control me-2" type="search" name="q" value="{{ request.GET.q }}" placeholder="Search products">
+        <button class="btn btn-outline-dark" type="submit"><i class="fa fa-search"></i></button>
+      </form>
+
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item me-2">
+          <a href="{% url 'cart:detail' %}">
+            Cart ({{ cart|length }})
+          </a>
+        </li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item"><span class="nav-link">Hi, {{ user.username }}</span></li>
+          <li class="nav-item">
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button class="btn btn-link nav-link" type="submit">Logout</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'accounts:signup' %}">Sign up</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} mb-2" role="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% block content %}{% endblock %}
+
+<footer class="border-top mt-5 py-4 bg-light">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>
+      <strong>Jof</strong><br>
+      <small class="text-muted">Simple Django e-commerce demo.</small>
+    </div>
+    <small class="text-muted">© {% now "Y" %} Jof</small>
+  </div>
+</footer>
+
+<script src="{% static 'jof/js/jquery.min.js' %}"></script>
+<script src="{% static 'jof/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'jof/js/jquery.validate.js' %}"></script>
+<script src="{% static 'jof/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+{# Guard optional plugins so missing files won't crash the page #}
+<script>
+  window.jQuery = window.jQuery || window.$;
+</script>
+
+<script src="{% static 'jof/js/custom.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

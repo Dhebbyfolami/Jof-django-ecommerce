@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Jof | Order Success{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="mb-2">Order received ✅</h2>
+      <p class="text-muted mb-4">Order ID: <strong>#{{ order.id }}</strong></p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h5>Customer</h5>
+          <div>{{ order.full_name }}</div>
+          <div>{{ order.email }}</div>
+          {% if order.phone %}<div>{{ order.phone }}</div>{% endif %}
+          <div class="mt-2">{{ order.address }}</div>
+          <div>{{ order.city }} {{ order.state }} {{ order.country }}</div>
+        </div>
+        <div class="col-lg-6">
+          <h5>Payment</h5>
+          <div>Method: <strong>{{ order.get_payment_provider_display }}</strong></div>
+          <div>Status:
+            {% if order.is_paid %}
+              <span class="badge bg-success">Paid</span>
+            {% else %}
+              <span class="badge bg-warning text-dark">Pending</span>
+            {% endif %}
+          </div>
+          <div class="mt-2">Total: <strong>₦{{ order.total_amount }}</strong></div>
+
+          {% if order.payment_provider == "cod" and not order.is_paid %}
+            <div class="alert alert-info mt-3">
+              This order is pending payment. You can contact the store to confirm transfer/payment.
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <h5>Items</h5>
+      <ul class="list-group">
+        {% for item in order.items.all %}
+          <li class="list-group-item d-flex justify-content-between">
+            <span>{{ item.product.name }} (x{{ item.quantity }})</span>
+            <span>₦{{ item.total_price }}</span>
+          </li>
+        {% endfor %}
+        <li class="list-group-item d-flex justify-content-between">
+          <strong>Total</strong>
+          <strong>₦{{ order.total_amount }}</strong>
+        </li>
+      </ul>
+
+      <div class="mt-4">
+        <a href="{% url 'store:product_list' %}" class="btn btn-dark">Continue shopping</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

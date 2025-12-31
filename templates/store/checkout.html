@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Jof | Checkout{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Checkout</h2>
+
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Delivery Details</h5>
+
+          <form method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full name</label>
+                {{ form.full_name }}
+                {% for e in form.full_name.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                {{ form.email }}
+                {% for e in form.email.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone</label>
+                {{ form.phone }}
+              </div>
+              <div class="col-12">
+                <label class="form-label">Address</label>
+                {{ form.address }}
+                {% for e in form.address.errors %}<div class="text-danger small">{{ e }}</div>{% endfor %}
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">City</label>
+                {{ form.city }}
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">State</label>
+                {{ form.state }}
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">Country</label>
+                {{ form.country }}
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Payment method</label>
+                {{ form.payment_provider }}
+              </div>
+
+              <div class="col-12">
+                <button class="btn btn-dark w-100" type="submit">Place order</button>
+                <small class="text-muted d-block mt-2">
+                  If you choose Paystack/Flutterwave, you’ll be redirected to complete payment.
+                </small>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Order Summary</h5>
+          <ul class="list-group list-group-flush">
+            {% for item in cart %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-bold">{{ item.product.name }}</div>
+                  <small class="text-muted">{{ item.quantity }} × ₦{{ item.price }}</small>
+                </div>
+                <span>₦{{ item.total_price }}</span>
+              </li>
+            {% endfor %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <strong>Total</strong>
+              <strong>₦{{ cart.get_total_price }}</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
