@@ -106,7 +106,7 @@ No real money is processed in this deployment.
 
 ---
 
-## 📸 Preview
+## 📸 Preview(Screenshots)
 
 
 ### 🏠 Home Page
